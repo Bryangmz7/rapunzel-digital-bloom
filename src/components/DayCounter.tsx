@@ -23,39 +23,39 @@ const DayCounter = () => {
     };
 
     updateCounter();
-    const interval = setInterval(updateCounter, 60000); // Update every minute
+    const interval = setInterval(updateCounter, 60000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="text-center mb-8 animate-fadeIn">
-      <h3 className="font-dancing text-3xl md:text-4xl text-rapunzel-purple mb-4 animate-glow">
+    <div className="text-center animate-fadeIn">
+      <h3 className="font-dancing text-lg md:text-xl text-rapunzel-purple mb-3 opacity-80">
         Te conozco desde hace...
       </h3>
-      <div className="bg-gradient-to-r from-rapunzel-lightPurple/10 to-rapunzel-pink/10 rounded-lg p-6 backdrop-blur-sm border border-rapunzel-lightPurple/20">
-        <div className="grid grid-cols-3 gap-4 text-center">
+      <div className="bg-gradient-to-r from-rapunzel-lightPurple/5 to-rapunzel-pink/5 rounded-lg p-4 backdrop-blur-sm border border-rapunzel-lightPurple/10">
+        <div className="grid grid-cols-3 gap-3 text-center">
           <div className="animate-slideInLeft">
-            <div className="text-3xl md:text-4xl font-bold gradient-text font-dancing">
+            <div className="text-xl md:text-2xl font-bold gradient-text font-dancing">
               {days}
             </div>
-            <div className="text-sm md:text-base text-rapunzel-purple font-semibold">
+            <div className="text-xs md:text-sm text-rapunzel-purple font-semibold opacity-70">
               días
             </div>
           </div>
           <div className="animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-            <div className="text-3xl md:text-4xl font-bold gradient-text font-dancing">
+            <div className="text-xl md:text-2xl font-bold gradient-text font-dancing">
               {hours}
             </div>
-            <div className="text-sm md:text-base text-rapunzel-purple font-semibold">
+            <div className="text-xs md:text-sm text-rapunzel-purple font-semibold opacity-70">
               horas
             </div>
           </div>
           <div className="animate-slideInRight" style={{ animationDelay: '0.5s' }}>
-            <div className="text-3xl md:text-4xl font-bold gradient-text font-dancing">
+            <div className="text-xl md:text-2xl font-bold gradient-text font-dancing">
               {minutes}
             </div>
-            <div className="text-sm md:text-base text-rapunzel-purple font-semibold">
+            <div className="text-xs md:text-sm text-rapunzel-purple font-semibold opacity-70">
               minutos
             </div>
           </div>
