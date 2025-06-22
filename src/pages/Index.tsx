@@ -61,7 +61,7 @@ const Index = () => {
                 href="https://web-flores.netlify.app/datos/flores"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 text-sm text-rapunzel-purple hover:text-rapunzel-darkPurple underline"
+                className="mt-2 inline-block bg-rapunzel-purple px-4 py-2 rounded-full text-white shadow-md transition-colors hover:bg-rapunzel-darkPurple"
               >
                 No me salieron las flores en tu carta
               </a>
