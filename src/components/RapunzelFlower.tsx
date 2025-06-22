@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const RapunzelFlower = () => {
@@ -16,7 +15,7 @@ const RapunzelFlower = () => {
 
   return (
     <div className="relative w-64 h-64 mx-auto animate-float">
-      {/* Rotating sparkles */}
+           {/* Rotating sparkles */}
       <div className="absolute inset-0 animate-orbit-slow">
         {sparkles.map((sparkle) => (
           <div
@@ -27,10 +26,9 @@ const RapunzelFlower = () => {
               top: `${sparkle.y}%`,
               animationDelay: `${sparkle.delay + 1}s`
             }}
-          />
+                  />
         ))}
       </div>
-
       <svg viewBox="0 0 200 200" className="absolute inset-0">
         <defs>
           <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
