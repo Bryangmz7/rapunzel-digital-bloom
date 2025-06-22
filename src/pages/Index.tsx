@@ -58,7 +58,7 @@ const Index = () => {
               </div>
               <p className="mt-4 text-sm text-gray-500">Florece</p>
               <a
-                href="https://web-flores.netlify.app/datos/flores"
+                href="https://web-flores.netlify.app/dores"atos/fl
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 text-sm text-rapunzel-purple hover:text-rapunzel-darkPurple underline"
