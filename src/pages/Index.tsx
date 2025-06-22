@@ -10,17 +10,13 @@ const Index = () => {
 
   useEffect(() => {
     // Efecto de entrada cuando se abre la carta
-    let contentTimer: NodeJS.Timeout;
     const timer = setTimeout(() => {
       setIsVisible(true);
       // Mostrar contenido después de un breve delay
-      contentTimer = setTimeout(() => setShowContent(true), 500);
+      setTimeout(() => setShowContent(true), 500);
     }, 300);
 
-    return () => {
-      clearTimeout(timer);
-      if (contentTimer) clearTimeout(contentTimer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
