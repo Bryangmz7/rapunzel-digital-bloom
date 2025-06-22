@@ -16,74 +16,117 @@ const RapunzelFlower = () => {
 
   return (
     <div className="relative w-64 h-64 mx-auto animate-float">
-      {/* Sparkles around the flower */}
-      {sparkles.map((sparkle) => (
-        <div
-          key={sparkle.id}
-          className="absolute w-2 h-2 bg-gradient-to-r from-rapunzel-gold to-rapunzel-pink rounded-full animate-sparkle"
-          style={{
-            left: `${sparkle.x}%`,
-            top: `${sparkle.y}%`,
-            animationDelay: `${sparkle.delay}s`
-          }}
-        />
-      ))}
-      
-      {/* Flower stem */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-32 bg-gradient-to-t from-green-600 to-green-400 rounded-full"></div>
-      
-      {/* Leaves */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-8 w-8 h-4 bg-green-500 rounded-full rotate-45 animate-petal-sway"></div>
-      <div className="absolute bottom-16 left-1/2 transform translate-x-4 w-6 h-3 bg-green-400 rounded-full -rotate-45 animate-petal-sway" style={{ animationDelay: '0.5s' }}></div>
-      
-      {/* Flower center */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-rapunzel-gold to-yellow-400 rounded-full animate-glow shadow-lg">
-        <div className="absolute inset-2 bg-gradient-to-br from-yellow-300 to-rapunzel-gold rounded-full animate-pulse"></div>
+      {/* Rotating sparkles */}
+      <div className="absolute inset-0 animate-orbit-slow">
+        {sparkles.map((sparkle) => (
+          <div
+            key={sparkle.id}
+            className="absolute w-2 h-2 bg-gradient-to-r from-rapunzel-gold to-rapunzel-pink rounded-full animate-sparkle"
+            style={{
+              left: `${sparkle.x}%`,
+              top: `${sparkle.y}%`,
+              animationDelay: `${sparkle.delay + 1}s`
+            }}
+          />
+        ))}
       </div>
-      
-      {/* Petals */}
-      {Array.from({ length: 8 }).map((_, i) => {
-        const rotation = (i * 45);
-        const delay = i * 0.1;
-        return (
-          <div
-            key={i}
-            className="absolute top-8 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full animate-petal-sway"
-            style={{ 
-              transform: `translateX(-50%) translateY(-100%) rotate(${rotation}deg)`,
-              animationDelay: `${delay}s`
-            }}
-          >
-            <div className="w-8 h-16 bg-gradient-to-t from-rapunzel-darkPurple via-rapunzel-purple to-rapunzel-lightPurple rounded-full shadow-lg animate-glow"
-                 style={{ transformOrigin: 'center bottom' }}>
-              <div className="absolute inset-1 bg-gradient-to-t from-rapunzel-purple to-purple-300 rounded-full opacity-70"></div>
-            </div>
-          </div>
-        );
-      })}
-      
-      {/* Inner petals */}
-      {Array.from({ length: 6 }).map((_, i) => {
-        const rotation = (i * 60) + 30;
-        const delay = i * 0.15;
-        return (
-          <div
-            key={`inner-${i}`}
-            className="absolute top-12 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full animate-petal-sway"
-            style={{ 
-              transform: `translateX(-50%) translateY(-100%) rotate(${rotation}deg)`,
-              animationDelay: `${delay}s`
-            }}
-          >
-            <div className="w-6 h-12 bg-gradient-to-t from-rapunzel-pink via-purple-400 to-rapunzel-lightPurple rounded-full shadow-md animate-glow opacity-90"
-                 style={{ transformOrigin: 'center bottom' }}>
-            </div>
-          </div>
-        );
-      })}
-      
-      {/* Magical glow effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-rapunzel-lightPurple/20 via-transparent to-transparent rounded-full animate-pulse"></div>
+
+      <svg viewBox="0 0 200 200" className="absolute inset-0">
+        <defs>
+          <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#fff7ae" />
+            <stop offset="100%" stopColor="#F59E0B" />
+          </radialGradient>
+          <linearGradient id="stemGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#16A34A" />
+            <stop offset="100%" stopColor="#4ADE80" />
+          </linearGradient>
+          <radialGradient id="outerPetal" cx="50%" cy="20%" r="80%">
+            <stop offset="0%" stopColor="#c084fc" />
+            <stop offset="100%" stopColor="#7c3aed" />
+          </radialGradient>
+          <radialGradient id="innerPetal" cx="50%" cy="20%" r="80%">
+            <stop offset="0%" stopColor="#fbcfe8" />
+            <stop offset="100%" stopColor="#a78bfa" />
+          </radialGradient>
+          <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#4ade80" />
+            <stop offset="100%" stopColor="#22c55e" />
+          </linearGradient>
+        </defs>
+
+        {/* Stem */}
+        <rect
+          x="98"
+          y="120"
+          width="4"
+          height="60"
+          fill="url(#stemGradient)"
+          className="origin-bottom animate-stem-grow"
+        />
+
+        {/* Leaves */}
+        <path
+          d="M100 150 C90 140 70 120 60 110 C75 125 85 135 100 150 Z"
+          fill="url(#leafGradient)"
+          className="animate-petal-sway animate-petal-bloom"
+          style={{ animationDelay: '0.3s' }}
+        />
+        <path
+          d="M100 150 C110 140 130 120 140 110 C125 125 115 135 100 150 Z"
+          fill="url(#leafGradient)"
+          className="animate-petal-sway animate-petal-bloom"
+          style={{ animationDelay: '0.5s' }}
+        />
+
+        {/* Outer petals */}
+        {Array.from({ length: 8 }).map((_, i) => {
+          const delay = i * 0.1 + 0.6;
+          const rotate = i * 45;
+          return (
+            <path
+              key={i}
+              d="M100 20 C115 40 115 160 100 180 C85 160 85 40 100 20 Z"
+              fill="url(#outerPetal)"
+              className="origin-center animate-petal-sway animate-petal-bloom shadow-lg"
+              style={{ transform: `rotate(${rotate}deg)`, animationDelay: `${delay}s` }}
+            />
+          );
+        })}
+
+        {/* Inner petals */}
+        {Array.from({ length: 6 }).map((_, i) => {
+          const delay = i * 0.15 + 1;
+          const rotate = i * 60 + 30;
+          return (
+            <path
+              key={`inner-${i}`}
+              d="M100 40 C110 55 110 145 100 160 C90 145 90 55 100 40 Z"
+              fill="url(#innerPetal)"
+              className="origin-center opacity-90 animate-petal-sway animate-petal-bloom"
+              style={{ transform: `rotate(${rotate}deg)`, animationDelay: `${delay}s` }}
+            />
+          );
+        })}
+
+        {/* Center */}
+        <circle
+          cx="100"
+          cy="100"
+          r="18"
+          fill="url(#centerGradient)"
+          className="shadow-lg animate-glow animate-center-bloom"
+        />
+
+        {/* Glow overlay */}
+        <circle
+          cx="100"
+          cy="100"
+          r="40"
+          fill="url(#centerGradient)"
+          className="opacity-20 animate-pulse"
+        />
+      </svg>
     </div>
   );
 };

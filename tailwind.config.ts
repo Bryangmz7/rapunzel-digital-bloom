@@ -117,10 +117,26 @@ export default {
 					'0%': { opacity: '0', transform: 'translateX(50px)' },
 					'100%': { opacity: '1', transform: 'translateX(0)' }
 				},
-				'petal-sway': {
-					'0%, 100%': { transform: 'rotate(-3deg)' },
-					'50%': { transform: 'rotate(3deg)' }
-				}
+                                'petal-sway': {
+                                        '0%, 100%': { transform: 'rotate(-3deg)' },
+                                        '50%': { transform: 'rotate(3deg)' }
+                                },
+                                'stem-grow': {
+                                        '0%': { transform: 'scaleY(0)' },
+                                        '100%': { transform: 'scaleY(1)' }
+                                },
+                                'center-bloom': {
+                                        '0%': { transform: 'scale(0)', opacity: '0' },
+                                        '100%': { transform: 'scale(1)', opacity: '1' }
+                                },
+                                'petal-bloom': {
+                                        '0%': { transform: 'scale(0)', opacity: '0' },
+                                        '100%': { transform: 'scale(1)', opacity: '1' }
+                                },
+                                'orbit': {
+                                        '0%': { transform: 'rotate(0deg)' },
+                                        '100%': { transform: 'rotate(360deg)' }
+                                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -131,9 +147,13 @@ export default {
 				'fadeIn': 'fadeIn 1s ease-out',
 				'slideInLeft': 'slideInLeft 1s ease-out',
 				'slideInRight': 'slideInRight 1s ease-out',
-				'petal-sway': 'petal-sway 4s ease-in-out infinite'
-			}
-		}
-	},
+                                'petal-sway': 'petal-sway 4s ease-in-out infinite',
+                                'stem-grow': 'stem-grow 1s ease-out forwards',
+                                'center-bloom': 'center-bloom 0.6s ease-out forwards',
+                                'petal-bloom': 'petal-bloom 0.8s ease-out forwards',
+                                'orbit-slow': 'orbit 10s linear infinite'
+                        }
+                }
+        },
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
