@@ -1,132 +1,308 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import './RapunzelFlower.css';
 
-const RapunzelFlower = () => {
-  const [sparkles, setSparkles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
+const RapunzelFlower = () => (
+  <div className="rapunzel-flower-container">
+    <h1 className="titulo">
+      Las flores amarillas simbolizan la felicidad. <br />
+      Tú eres la mía❤️
+    </h1>
 
-  useEffect(() => {
-    const sparkleArray = Array.from({ length: 12 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      delay: Math.random() * 2
-    }));
-    setSparkles(sparkleArray);
-  }, []);
+    <div className="night"></div>
+    <div className="flowers">
+      <div className="flower flower--1">
+        <div className="flower__leafs flower__leafs--1">
+          <div className="flower__leaf flower__leaf--1"></div>
+          <div className="flower__leaf flower__leaf--2"></div>
+          <div className="flower__leaf flower__leaf--3"></div>
+          <div className="flower__leaf flower__leaf--4"></div>
+          <div className="flower__white-circle"></div>
 
-  return (
-    <div className="relative w-64 h-64 mx-auto animate-float">
-           {/* Rotating sparkles */}
-      <div className="absolute inset-0 animate-orbit-slow">
-        {sparkles.map((sparkle) => (
-          <div
-            key={sparkle.id}
-            className="absolute w-2 h-2 bg-gradient-to-r from-rapunzel-gold to-rapunzel-pink rounded-full animate-sparkle"
-            style={{
-              left: `${sparkle.x}%`,
-              top: `${sparkle.y}%`,
-              animationDelay: `${sparkle.delay + 1}s`
-            }}
-                  />
-        ))}
+          <div className="flower__light flower__light--1"></div>
+          <div className="flower__light flower__light--2"></div>
+          <div className="flower__light flower__light--3"></div>
+          <div className="flower__light flower__light--4"></div>
+          <div className="flower__light flower__light--5"></div>
+          <div className="flower__light flower__light--6"></div>
+          <div className="flower__light flower__light--7"></div>
+          <div className="flower__light flower__light--8"></div>
+        </div>
+        <div className="flower__line">
+          <div className="flower__line__leaf flower__line__leaf--1"></div>
+          <div className="flower__line__leaf flower__line__leaf--2"></div>
+          <div className="flower__line__leaf flower__line__leaf--3"></div>
+          <div className="flower__line__leaf flower__line__leaf--4"></div>
+          <div className="flower__line__leaf flower__line__leaf--5"></div>
+          <div className="flower__line__leaf flower__line__leaf--6"></div>
+        </div>
       </div>
-      <svg viewBox="0 0 200 200" className="absolute inset-0">
-        <defs>
-          <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#fff7ae" />
-            <stop offset="100%" stopColor="#F59E0B" />
-          </radialGradient>
-          <linearGradient id="stemGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" stopColor="#16A34A" />
-            <stop offset="100%" stopColor="#4ADE80" />
-          </linearGradient>
-          <radialGradient id="outerPetal" cx="50%" cy="20%" r="80%">
-            <stop offset="0%" stopColor="#c084fc" />
-            <stop offset="100%" stopColor="#7c3aed" />
-          </radialGradient>
-          <radialGradient id="innerPetal" cx="50%" cy="20%" r="80%">
-            <stop offset="0%" stopColor="#fbcfe8" />
-            <stop offset="100%" stopColor="#a78bfa" />
-          </radialGradient>
-          <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#4ade80" />
-            <stop offset="100%" stopColor="#22c55e" />
-          </linearGradient>
-        </defs>
 
-        {/* Stem */}
-        <rect
-          x="98"
-          y="120"
-          width="4"
-          height="60"
-          fill="url(#stemGradient)"
-          className="origin-bottom animate-stem-grow"
-        />
+      <div className="flower flower--2">
+        <div className="flower__leafs flower__leafs--2">
+          <div className="flower__leaf flower__leaf--1"></div>
+          <div className="flower__leaf flower__leaf--2"></div>
+          <div className="flower__leaf flower__leaf--3"></div>
+          <div className="flower__leaf flower__leaf--4"></div>
+          <div className="flower__white-circle"></div>
 
-        {/* Leaves */}
-        <path
-          d="M100 150 C90 140 70 120 60 110 C75 125 85 135 100 150 Z"
-          fill="url(#leafGradient)"
-          className="animate-petal-sway animate-petal-bloom"
-          style={{ animationDelay: '0.3s' }}
-        />
-        <path
-          d="M100 150 C110 140 130 120 140 110 C125 125 115 135 100 150 Z"
-          fill="url(#leafGradient)"
-          className="animate-petal-sway animate-petal-bloom"
-          style={{ animationDelay: '0.5s' }}
-        />
+          <div className="flower__light flower__light--1"></div>
+          <div className="flower__light flower__light--2"></div>
+          <div className="flower__light flower__light--3"></div>
+          <div className="flower__light flower__light--4"></div>
+          <div className="flower__light flower__light--5"></div>
+          <div className="flower__light flower__light--6"></div>
+          <div className="flower__light flower__light--7"></div>
+          <div className="flower__light flower__light--8"></div>
+        </div>
+        <div className="flower__line">
+          <div className="flower__line__leaf flower__line__leaf--1"></div>
+          <div className="flower__line__leaf flower__line__leaf--2"></div>
+          <div className="flower__line__leaf flower__line__leaf--3"></div>
+          <div className="flower__line__leaf flower__line__leaf--4"></div>
+        </div>
+      </div>
 
-        {/* Outer petals */}
-        {Array.from({ length: 8 }).map((_, i) => {
-          const delay = i * 0.1 + 0.6;
-          const rotate = i * 45;
-          return (
-            <path
-              key={i}
-              d="M100 20 C115 40 115 160 100 180 C85 160 85 40 100 20 Z"
-              fill="url(#outerPetal)"
-              className="origin-center animate-petal-sway animate-petal-bloom shadow-lg"
-              style={{ transform: `rotate(${rotate}deg)`, animationDelay: `${delay}s` }}
-            />
-          );
-        })}
+      <div className="flower flower--3">
+        <div className="flower__leafs flower__leafs--3">
+          <div className="flower__leaf flower__leaf--1"></div>
+          <div className="flower__leaf flower__leaf--2"></div>
+          <div className="flower__leaf flower__leaf--3"></div>
+          <div className="flower__leaf flower__leaf--4"></div>
+          <div className="flower__white-circle"></div>
 
-        {/* Inner petals */}
-        {Array.from({ length: 6 }).map((_, i) => {
-          const delay = i * 0.15 + 1;
-          const rotate = i * 60 + 30;
-          return (
-            <path
-              key={`inner-${i}`}
-              d="M100 40 C110 55 110 145 100 160 C90 145 90 55 100 40 Z"
-              fill="url(#innerPetal)"
-              className="origin-center opacity-90 animate-petal-sway animate-petal-bloom"
-              style={{ transform: `rotate(${rotate}deg)`, animationDelay: `${delay}s` }}
-            />
-          );
-        })}
+          <div className="flower__light flower__light--1"></div>
+          <div className="flower__light flower__light--2"></div>
+          <div className="flower__light flower__light--3"></div>
+          <div className="flower__light flower__light--4"></div>
+          <div className="flower__light flower__light--5"></div>
+          <div className="flower__light flower__light--6"></div>
+          <div className="flower__light flower__light--7"></div>
+          <div className="flower__light flower__light--8"></div>
+        </div>
+        <div className="flower__line">
+          <div className="flower__line__leaf flower__line__leaf--1"></div>
+          <div className="flower__line__leaf flower__line__leaf--2"></div>
+          <div className="flower__line__leaf flower__line__leaf--3"></div>
+          <div className="flower__line__leaf flower__line__leaf--4"></div>
+        </div>
+      </div>
 
-        {/* Center */}
-        <circle
-          cx="100"
-          cy="100"
-          r="18"
-          fill="url(#centerGradient)"
-          className="shadow-lg animate-glow animate-center-bloom"
-        />
+      <div className="grow-ans" style={{ '--d': '1.2s' } as React.CSSProperties}>
+        <div className="flower__g-long">
+          <div className="flower__g-long__top"></div>
+          <div className="flower__g-long__bottom"></div>
+        </div>
+      </div>
 
-        {/* Glow overlay */}
-        <circle
-          cx="100"
-          cy="100"
-          r="40"
-          fill="url(#centerGradient)"
-          className="opacity-20 animate-pulse"
-        />
-      </svg>
+      <div className="growing-grass">
+        <div className="flower__grass flower__grass--1">
+          <div className="flower__grass--top"></div>
+          <div className="flower__grass--bottom"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--1"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--2"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--3"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--4"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--5"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--6"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--7"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--8"></div>
+          <div className="flower__grass__overlay"></div>
+        </div>
+      </div>
+
+      <div className="growing-grass">
+        <div className="flower__grass flower__grass--2">
+          <div className="flower__grass--top"></div>
+          <div className="flower__grass--bottom"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--1"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--2"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--3"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--4"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--5"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--6"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--7"></div>
+          <div className="flower__grass__leaf flower__grass__leaf--8"></div>
+          <div className="flower__grass__overlay"></div>
+        </div>
+      </div>
+
+      <div className="grow-ans" style={{ '--d': '2.4s' } as React.CSSProperties}>
+        <div className="flower__g-right flower__g-right--1">
+          <div className="leaf"></div>
+        </div>
+      </div>
+
+      <div className="grow-ans" style={{ '--d': '2.8s' } as React.CSSProperties}>
+        <div className="flower__g-right flower__g-right--2">
+          <div className="leaf"></div>
+        </div>
+      </div>
+
+      <div className="grow-ans" style={{ '--d': '2.8s' } as React.CSSProperties}>
+        <div className="flower__g-front">
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+            <div className="flower__g-front__leaf"></div>
+          </div>
+          <div className="flower__g-front__line"></div>
+        </div>
+      </div>
+
+      <div className="grow-ans" style={{ '--d': '3.2s' } as React.CSSProperties}>
+        <div className="flower__g-fr">
+          <div className="leaf"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+          <div className="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--0">
+        <div className="grow-ans" style={{ '--d': '3s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '2.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.4s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--1">
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.8s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--2">
+        <div className="grow-ans" style={{ '--d': '4s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.4s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--3">
+        <div className="grow-ans" style={{ '--d': '4s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--4">
+        <div className="grow-ans" style={{ '--d': '4s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--5">
+        <div className="grow-ans" style={{ '--d': '4s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--6">
+        <div className="grow-ans" style={{ '--d': '4.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.4s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '4.8s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
+
+      <div className="long-g long-g--7">
+        <div className="grow-ans" style={{ '--d': '3s' } as React.CSSProperties}>
+          <div className="leaf leaf--0"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.2s' } as React.CSSProperties}>
+          <div className="leaf leaf--1"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.5s' } as React.CSSProperties}>
+          <div className="leaf leaf--2"></div>
+        </div>
+        <div className="grow-ans" style={{ '--d': '3.6s' } as React.CSSProperties}>
+          <div className="leaf leaf--3"></div>
+        </div>
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default RapunzelFlower;
