@@ -52,10 +52,19 @@ const Index = () => {
             </div>
             
             {/* Animación de la flor a la derecha */}
-            <div className={`flex justify-center transition-all duration-1000 delay-500 ${showContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className={`flex flex-col items-center justify-center transition-all duration-1000 delay-500 ${showContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="animate-float">
                 <RapunzelFlower />
               </div>
+              <p className="mt-4 text-sm text-gray-500">Florece</p>
+              <a
+                href="https://web-flores.netlify.app/datos/flores"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 text-sm text-rapunzel-purple hover:text-rapunzel-darkPurple underline"
+              >
+                No me salieron las flores en tu carta
+              </a>
             </div>
           </div>
           
