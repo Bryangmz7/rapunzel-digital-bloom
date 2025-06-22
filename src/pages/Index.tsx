@@ -52,8 +52,10 @@ const Index = () => {
             </div>
             
             {/* Animación de la flor a la derecha */}
-            <div className={`flex justify-center transition-all duration-1000 delay-500 ${showContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="animate-float">
+            <div
+              className={`flex justify-center transition-all duration-1000 delay-500 ${showContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+            >
+              <div className="animate-float w-80 h-80">
                 <RapunzelFlower />
               </div>
             </div>
