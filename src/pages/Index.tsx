@@ -9,6 +9,16 @@ const Index = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    const audio = document.getElementById('bg-music') as HTMLAudioElement | null;
+    if (audio) {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     // Efecto de entrada cuando se abre la carta
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -22,7 +32,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-purple-50 relative overflow-hidden flex items-center justify-center p-4">
       <MagicalParticles />
-      
+      <audio id="bg-music" src="/rapunzel_song.mp3" autoPlay loop className="hidden" />
+
       {/* Carta principal */}
       <div className={`w-full max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
         <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-6 md:p-12 shadow-2xl border border-rapunzel-lightPurple/20 relative z-10">
