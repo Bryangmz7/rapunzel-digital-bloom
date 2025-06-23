@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-purple-50 relative overflow-hidden flex items-center justify-center p-4">
       <MagicalParticles />
-      <audio id="bg-music" src="/rapunzel_song.mp3" autoPlay loop className="hidden" />
+      <audio id="bg-music" src="public_rapunzel_song.mp3" autoPlay loop className="hidden" />
 
       {/* Carta principal */}
       <div className={`w-full max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
